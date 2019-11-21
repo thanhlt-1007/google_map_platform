@@ -1,0 +1,19 @@
+staticmap:
+  base_url: "https://maps.googleapis.com/maps/api/staticmap"
+  center: "0;0"
+  zoom: 10
+  width: 400
+  height: 500
+  format: "png8"
+  formats:
+  - "PNG 8;png8"
+  - "PNG 32;png32"
+  - "GIF;gif"
+  - "JPG compression;jpg"
+  - "JPG non-progressive;jpg-baseline"
+  maptype: "roadmap"
+  maptypes:
+  - "Roadmap;roadmap"
+  - "Satellite;satellite"
+  - "Hybrid;hybrid"
+  - "Terrain;terrain"

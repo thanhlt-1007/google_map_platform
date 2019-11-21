@@ -1,2 +1,64 @@
-<h1>MapsStaticApis#index</h1>
-<p>Find me in app/views/maps_static_apis/index.html.erb</p>
+<div class="container">
+  <div class="jumbotron">
+    <h1>MAPS STATIC API</h1>
+    <p>
+      The Maps Static API returns an image (either GIF, PNG or JPEG) in response to HTTP request via URL.
+      For each request, you can specify the location of the map, the size of the image, the zoom level, the type of map, and the placement of optional markers at location on the map.
+      You can addtionally label your markers using alphanumeric characters.
+    </p>
+  </div>
+  <p>A Maps Static API image is embedded within an <code>img</code> tag's <code>src</code> attribute.</p>
+
+  <h2>This is another text.</h2>
+  <%= form_tag maps_static_apis_path, method: :GET, class: "form-horizontal" do %>
+    <div class="form-group">
+      <%= label_tag :center, "Center (*)", class: "control-label col-sm-2" %>
+      <div class="col-sm-10">
+        <%= text_field_tag :center, center, class: "form-control", required: true %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :zoom, "Zoom (*)", class: "control-label col-sm-2" %>
+      <div class="col-sm-10">
+        <%= number_field_tag :zoom, zoom, class: "form-control", required: true %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :width, "Width (*)", class: "control-label col-sm-2" %>
+      <div class="col-sm-4">
+        <%= number_field_tag :width, width, class: "form-control", required: true %>
+      </div>
+
+      <%= label_tag :height, "Height (*)", class: "control-label col-sm-2" %>
+      <div class="col-sm-4">
+        <%= number_field_tag :height, height, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :format, "Format", class: "control-label col-sm-2" %>
+      <div class="col-sm-10">
+        <%= select_tag :format, options_for_select(formats, format), class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :maptype, "Maptype", class: "control-label col-sm-2" %>
+      <div class="col-sm-10">
+        <%= select_tag :maptype, options_for_select(maptypes, maptype), class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <%= submit_tag "Submit", class: "btn btn-primary btn-block" %>
+      </div>
+    </div>
+  <% end %>
+
+  <div style="margin-bottom: 50px;">
+    <%= image_tag @src, style: "margin-left: auto; margin-right: auto; display: block;" %>
+  </div>
+</div>
