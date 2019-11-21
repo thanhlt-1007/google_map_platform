@@ -9,7 +9,6 @@
   </div>
   <p>A Maps Static API image is embedded within an <code>img</code> tag's <code>src</code> attribute.</p>
 
-  <h2>This is another text.</h2>
   <%= form_tag maps_static_apis_path, method: :GET, class: "form-horizontal" do %>
     <div class="form-group">
       <%= label_tag :center, "Center (*)", class: "control-label col-sm-2" %>
@@ -58,7 +57,7 @@
     </div>
   <% end %>
 
-  <div style="margin-bottom: 50px;">
-    <%= image_tag @src, style: "margin-left: auto; margin-right: auto; display: block;" %>
+  <div class="container-map-static">
+    <%= image_tag @src %>
   </div>
 </div>

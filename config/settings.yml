@@ -17,3 +17,9 @@ staticmap:
   - "Satellite;satellite"
   - "Hybrid;hybrid"
   - "Terrain;terrain"
+
+map_javascript:
+  base_url: "https://maps.googleapis.com/maps/api/js"
+  lat: 0
+  lng: 0
+  zoom: 10

@@ -1,2 +1,19 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.container-map-static {
+  margin-bottom: 20px;
+
+  img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block
+  }
+}
+
+.container-map {
+  margin-top: 20px;
+  width: 100%;
+  height: 500px;
+  margin-bottom: 20px;
+}

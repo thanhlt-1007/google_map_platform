@@ -16,9 +16,11 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "config"
 gem "jquery-rails"
 gem "bootstrap-sass"
+gem "gon"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "pry-rails"
   gem "dotenv-rails"
 end
 
