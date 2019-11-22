@@ -8,22 +8,29 @@ class MapsJavascriptApisController < ApplicationController
     }
     @src = "#{Settings.map_javascript.base_url}?#{@params.to_query}"
 
-    gon.lat = lat.to_i
-    gon.lng = lng.to_i
-    gon.zoom = zoom.to_i
+    locations = (1..10).inject([]) do |locations, i|
+      lat_i = lat + rand * (1..3).to_a.sample * [-1, 1].sample
+      lng_i = lng + rand * (1..3).to_a.sample * [-1, 1].sample
+      locations << {lat: lat_i, lng: lng_i}
+    end
+
+    gon.lat = lat
+    gon.lng = lng
+    gon.zoom = zoom
+    gon.locations = locations
   end
 
   private
 
   def lat
-    params[:lat].presence || Settings.map_javascript.lat
+    @lat ||= (params[:lat].presence || Settings.map_javascript.lat).to_f
   end
 
   def lng
-    params[:lng].presence || Settings.map_javascript.lng
+    @lng ||= (params[:lng].presence || Settings.map_javascript.lng).to_f
   end
 
   def zoom
-    params[:zoom].presence || Settings.map_javascript.zoom
+    @zoom ||= (params[:zoom].presence || Settings.map_javascript.zoom).to_i
   end
 end

@@ -49,8 +49,25 @@
     });
     var marker = new google.maps.Marker({
       position: lat_lng,
-      map: map
+      map: map,
+      label: "1"
+    });
+
+    var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var locations = gon.locations;
+    var markers = locations.map(function(location, i) {
+      var label = labels[i % labels.length];
+
+      return new google.maps.Marker({
+        position: location,
+        map: map,
+        label: label
+      });
+    });
+    var markerCluster = new MarkerClusterer(map, markers, {
+      imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
     });
   }
 </script>
+<%= javascript_include_tag "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js" %>
 <%= javascript_include_tag @src, async: true, defer: true %>
