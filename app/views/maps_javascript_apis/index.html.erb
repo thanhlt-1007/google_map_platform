@@ -42,7 +42,7 @@
 
 <script>
   function initMap() {
-    var lat_lng = {lat: gon.lat, lng: gon.lng}
+    var lat_lng = {lat: gon.lat, lng: gon.lng};
     var map = new google.maps.Map(document.getElementById('map'), {
       center: lat_lng,
       zoom: gon.zoom
@@ -66,6 +66,18 @@
     });
     var markerCluster = new MarkerClusterer(map, markers, {
       imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
+    });
+
+    var heatmapData = [];
+    for (var i = 0; i < gon.locations.length; i++) {
+      var location = gon.locations[i]
+      var latLng = new google.maps.LatLng(location.lat, location.lng);
+      heatmapData.push(latLng);
+    }
+    var heatmap = new google.maps.visualization.HeatmapLayer({
+      data: heatmapData,
+      dissipating: false,
+      map: map
     });
   }
 </script>
