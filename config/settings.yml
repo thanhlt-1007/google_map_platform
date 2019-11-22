@@ -23,3 +23,9 @@ map_javascript:
   lat: 0
   lng: 0
   zoom: 10
+  maptype: "roadmap"
+  maptypes:
+  - "Roadmap;roadmap"
+  - "Satellite;satellite"
+  - "Hybrid;hybrid"
+  - "Terrain;terrain"

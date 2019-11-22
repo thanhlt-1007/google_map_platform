@@ -1,5 +1,5 @@
 class MapsJavascriptApisController < ApplicationController
-  helper_method :lat, :lng, :zoom
+  helper_method :lat, :lng, :zoom, :maptypes, :maptype
 
   def index
     @params = {
@@ -19,6 +19,7 @@ class MapsJavascriptApisController < ApplicationController
     gon.lng = lng
     gon.zoom = zoom
     gon.locations = locations
+    gon.maptype = maptype
   end
 
   private
@@ -33,5 +34,13 @@ class MapsJavascriptApisController < ApplicationController
 
   def zoom
     @zoom ||= (params[:zoom].presence || Settings.map_javascript.zoom).to_i
+  end
+
+  def maptypes
+    Settings.map_javascript.maptypes.map {|format| format.split(";")}
+  end
+
+  def maptype
+    params[:maptype].presence || Settings.map_javascript.maptype
   end
 end
