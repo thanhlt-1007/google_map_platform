@@ -5,7 +5,9 @@ class MapsJavascriptApisController < ApplicationController
     @params = {
       key: ENV["GMP_API_KEY"],
       callback: "initMap",
-      libraries: "visualization"
+      libraries: "visualization",
+      language: "ja",
+      region: "JP"
     }
     @src = "#{Settings.map_javascript.base_url}?#{@params.to_query}"
 
