@@ -63,22 +63,11 @@
 
 <script>
   var map, infoWindow;
+
   function initMap() {
     singleMarer();
     multipleMarker();
-
-    // var heatmapData = [];
-    // for (var i = 0; i < gon.locations.length; i++) {
-    //   var location = gon.locations[i]
-    //   var latLng = new google.maps.LatLng(location.lat, location.lng);
-    //   heatmapData.push(latLng);
-    // }
-    // var heatmap = new google.maps.visualization.HeatmapLayer({
-    //   data: heatmapData,
-    //   dissipating: false,
-    //   map: map
-    // });
-
+    visualization();
     infoWindow();
   }
 
@@ -111,6 +100,20 @@
     });
     var markerCluster = new MarkerClusterer(map, markers, {
       imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
+    });
+  }
+
+  function visualization() {
+    var heatmapData = [];
+    for (var i = 0; i < gon.locations.length; i++) {
+      var location = gon.locations[i]
+      var latLng = new google.maps.LatLng(location.lat, location.lng);
+      heatmapData.push(latLng);
+    }
+    var heatmap = new google.maps.visualization.HeatmapLayer({
+      data: heatmapData,
+      dissipating: false,
+      map: map
     });
   }
 
