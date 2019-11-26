@@ -4,8 +4,8 @@ class MapsJavascriptApisController < ApplicationController
   def index
     @params = {
       key: ENV["GMP_API_KEY"],
-      callback: "initMap",
-      libraries: "visualization"
+      callback: "initMap"
+      # libraries: "visualization"
     }
     @src = "#{Settings.map_javascript.base_url}?#{@params.to_query}"
 
