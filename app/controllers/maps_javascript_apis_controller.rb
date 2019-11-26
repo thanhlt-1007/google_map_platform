@@ -24,6 +24,7 @@ class MapsJavascriptApisController < ApplicationController
     gon.maptype = maptype
     gon.titl = titl
     gon.heading = heading
+    gon.base_url = request.base_url
   end
 
   private
